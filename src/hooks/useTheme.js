@@ -31,7 +31,7 @@ export default function useTheme() {
     root.classList.toggle('dark', isDark);
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute('content', isDark ? '#020617' : '#f1f5f9');
+      ?.setAttribute('content', isDark ? '#121416' : '#F7F7F5');
     try {
       localStorage.setItem(THEME_KEY, mode);
     } catch {

@@ -38,6 +38,22 @@ src/
 └── styles/index.css
 ```
 
+## Paleta de colores
+
+Los colores de la interfaz viven como variables CSS en `src/styles/index.css` (un juego para `:root` / tema claro y otro para `.dark`). `tailwind.config.js` conecta esas variables con las escalas `slate` (fondos, superficies, bordes, textos), `indigo` (primario) y `emerald` (verde de acento), así que para cambiar un tono basta con editar la variable.
+
+| Uso | Claro | Oscuro |
+|---|---|---|
+| Fondo | `#F7F7F5` | `#121416` |
+| Tarjetas / superficies | `#FFFFFF` | `#1C1F22` |
+| Bordes / divisores | `#E5E7EB` | `#2E3338` |
+| Texto secundario | `#6B7280` | `#9CA3AF` |
+| Texto principal | `#1F2328` | `#E6E8EA` |
+| Primario | `#2F3E46` | `#A9B8C0` |
+| Verde (acento) | `#4A7C59` | `#6FA383` |
+| Verde hover | `#3D6649` | `#86B597` |
+| Verde fondo suave | `#E8F0EA` | `#1E2B23` |
+
 ## Modelo de datos (`habit-tracker:v3`)
 
 ```js

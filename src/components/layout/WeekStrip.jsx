@@ -33,7 +33,7 @@ export default function WeekStrip({ selectedDate, onSelect, dayRatio }) {
               aria-current={selected ? 'date' : undefined}
               className={`flex flex-col items-center gap-1 rounded-2xl py-2 transition ${
                 selected
-                  ? 'bg-indigo-600 text-white shadow-lg shadow-indigo-600/30'
+                  ? 'bg-indigo-600 text-white dark:text-slate-950 shadow-lg shadow-indigo-600/30'
                   : 'hover:bg-white dark:hover:bg-slate-900'
               }`}
             >

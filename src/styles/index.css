@@ -3,13 +3,83 @@
 @tailwind utilities;
 
 @layer base {
+  /* Tema claro — fondo #F7F7F5 · superficie #FFFFFF · borde #E5E7EB · texto #1F2328 / #6B7280
+     primario #2F3E46 · verde #4A7C59 (hover #3D6649, suave #E8F0EA) */
   :root {
-    --grid-line: 226 232 240; /* slate-200 */
+    --g-50: 250 250 248;
+    --g-100: 247 247 245;
+    --g-200: 229 231 235;
+    --g-300: 209 213 219;
+    --g-400: 156 163 175;
+    --g-500: 107 114 128;
+    --g-600: 75 85 99;
+    --g-700: 55 65 81;
+    --g-800: 42 47 53;
+    --g-900: 31 35 40;
+    --g-950: 22 24 27;
+    --p-50: 238 241 242;
+    --p-100: 225 230 232;
+    --p-200: 197 207 212;
+    --p-300: 157 174 182;
+    --p-400: 110 133 145;
+    --p-500: 70 90 100;
+    --p-600: 47 62 70;
+    --p-700: 37 50 58;
+    --p-800: 29 39 45;
+    --p-900: 22 30 35;
+    --p-950: 15 20 24;
+    --a-50: 232 240 234;
+    --a-100: 213 228 217;
+    --a-200: 180 207 188;
+    --a-300: 134 181 151;
+    --a-400: 95 146 112;
+    --a-500: 74 124 89;
+    --a-600: 61 102 73;
+    --a-700: 50 84 60;
+    --a-800: 40 67 48;
+    --a-900: 31 52 37;
+    --a-950: 22 37 27;
+    --grid-line: 229 231 235;
     color-scheme: light;
     -webkit-tap-highlight-color: transparent;
   }
+  /* Tema oscuro — fondo #121416 · superficie #1C1F22 · borde #2E3338 · texto #E6E8EA / #9CA3AF
+     primario #A9B8C0 · verde #6FA383 (hover #86B597, suave #1E2B23) */
   .dark {
-    --grid-line: 30 41 59; /* slate-800 */
+    --g-50: 28 31 34;
+    --g-100: 230 232 234;
+    --g-200: 213 217 221;
+    --g-300: 191 197 202;
+    --g-400: 156 163 175;
+    --g-500: 107 114 128;
+    --g-600: 75 81 87;
+    --g-700: 70 76 82;
+    --g-800: 46 51 56;
+    --g-900: 28 31 34;
+    --g-950: 18 20 22;
+    --p-50: 30 36 40;
+    --p-100: 36 43 48;
+    --p-200: 51 64 74;
+    --p-300: 195 207 213;
+    --p-400: 169 184 192;
+    --p-500: 186 199 206;
+    --p-600: 169 184 192;
+    --p-700: 147 164 173;
+    --p-800: 51 64 74;
+    --p-900: 36 43 48;
+    --p-950: 30 36 40;
+    --a-50: 30 43 35;
+    --a-100: 34 51 41;
+    --a-200: 45 69 55;
+    --a-300: 134 181 151;
+    --a-400: 111 163 131;
+    --a-500: 111 163 131;
+    --a-600: 134 181 151;
+    --a-700: 150 192 165;
+    --a-800: 45 69 55;
+    --a-900: 34 51 41;
+    --a-950: 30 43 35;
+    --grid-line: 46 51 56;
     color-scheme: dark;
   }
   html {
@@ -23,16 +93,16 @@
 
 @layer components {
   .card {
-    @apply rounded-3xl bg-white shadow-sm ring-1 ring-slate-900/5 transition-colors duration-300 dark:bg-slate-900 dark:ring-white/5;
+    @apply rounded-3xl bg-white shadow-sm ring-1 ring-slate-200 transition-colors duration-300 dark:bg-slate-900 dark:ring-slate-800;
   }
   .icon-btn {
     @apply inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-200/70 active:scale-95 disabled:opacity-30 dark:text-slate-400 dark:hover:bg-slate-800;
   }
   .chip {
-    @apply inline-flex items-center gap-1 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-indigo-600 shadow-sm ring-1 ring-slate-900/5 transition hover:bg-indigo-50 dark:bg-slate-800 dark:text-indigo-300 dark:ring-white/5 dark:hover:bg-slate-700;
+    @apply inline-flex items-center gap-1 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-indigo-600 shadow-sm ring-1 ring-slate-200 transition hover:bg-indigo-50 dark:bg-slate-800 dark:text-indigo-300 dark:ring-slate-800 dark:hover:bg-slate-700;
   }
   .input {
-    @apply w-full rounded-xl border-0 bg-slate-100 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500;
+    @apply w-full rounded-xl border-0 bg-slate-100 px-3.5 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none ring-1 ring-inset ring-slate-200 focus:ring-2 focus:ring-indigo-500 dark:bg-slate-800 dark:ring-slate-800 dark:text-slate-100 dark:placeholder:text-slate-500;
   }
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-500 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40;

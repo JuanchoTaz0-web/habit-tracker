@@ -8,9 +8,9 @@ import ProgressRing from '../ui/ProgressRing';
 import { IconBell, IconCheck, IconChevronDown, IconDots, IconMinus, IconPlus, IconRepeat, IconStar, IconX } from '../ui/Icons';
 
 const CARD_BY_STATUS = {
-  done: 'ring-emerald-500/40 bg-emerald-50/70 dark:bg-emerald-500/[0.07]',
+  done: 'ring-emerald-500/40 bg-emerald-50/70 dark:bg-emerald-50',
   missed: 'ring-rose-500/40 bg-rose-50/70 dark:bg-rose-500/[0.07]',
-  null: 'ring-slate-900/5 bg-white dark:bg-slate-900 dark:ring-white/5',
+  null: 'ring-slate-200 bg-white dark:bg-slate-900 dark:ring-slate-800',
 };
 
 /* ---------- Indicador / botón de estado ---------- */

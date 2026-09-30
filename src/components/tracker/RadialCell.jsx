@@ -2,7 +2,7 @@
 import { memo } from 'react';
 
 const FILL_BY_STATUS = {
-  done: 'fill-emerald-500 hover:fill-emerald-600 dark:fill-emerald-500 dark:hover:fill-emerald-400',
+  done: 'fill-emerald-500 hover:fill-emerald-600 dark:fill-emerald-500 dark:hover:fill-emerald-600',
   missed: 'fill-rose-500 hover:fill-rose-600 dark:fill-rose-500 dark:hover:fill-rose-400',
   empty: 'fill-white hover:fill-indigo-50 dark:fill-slate-900 dark:hover:fill-slate-800',
 };

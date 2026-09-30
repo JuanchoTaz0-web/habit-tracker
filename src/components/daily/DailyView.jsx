@@ -61,7 +61,7 @@ export default function DailyView({ store, onEditItem, onNewItem, onEditSection,
         <button
           type="button"
           onClick={onNewSection}
-          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-white/60 py-3.5 text-sm font-semibold text-indigo-600 ring-1 ring-slate-900/5 transition hover:bg-white dark:bg-slate-900/60 dark:text-indigo-400 dark:ring-white/5 dark:hover:bg-slate-900"
+          className="flex w-full items-center justify-center gap-2 rounded-2xl bg-white/60 py-3.5 text-sm font-semibold text-indigo-600 ring-1 ring-slate-200 transition hover:bg-white dark:bg-slate-900/60 dark:text-indigo-400 dark:ring-slate-800 dark:hover:bg-slate-900"
         >
           <IconPlus className="h-4 w-4" />
           Nueva sección

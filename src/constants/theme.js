@@ -3,12 +3,12 @@
 
 export const COLORS = {
   indigo: {
-    label: 'Índigo', hex: '#6366f1', dot: 'bg-indigo-500', bar: 'bg-indigo-500', barSoft: 'bg-indigo-500/40',
+    label: 'Índigo', hex: '#2F3E46', dot: 'bg-indigo-500', bar: 'bg-indigo-500', barSoft: 'bg-indigo-500/40',
     soft: 'bg-indigo-100 dark:bg-indigo-500/15', text: 'text-indigo-600 dark:text-indigo-300',
     ring: 'ring-indigo-500', stroke: 'stroke-indigo-500',
   },
   emerald: {
-    label: 'Esmeralda', hex: '#10b981', dot: 'bg-emerald-500', bar: 'bg-emerald-500', barSoft: 'bg-emerald-500/40',
+    label: 'Esmeralda', hex: '#4A7C59', dot: 'bg-emerald-500', bar: 'bg-emerald-500', barSoft: 'bg-emerald-500/40',
     soft: 'bg-emerald-100 dark:bg-emerald-500/15', text: 'text-emerald-600 dark:text-emerald-300',
     ring: 'ring-emerald-500', stroke: 'stroke-emerald-500',
   },
@@ -43,7 +43,7 @@ export const COLORS = {
     ring: 'ring-orange-500', stroke: 'stroke-orange-500',
   },
   slate: {
-    label: 'Gris', hex: '#64748b', dot: 'bg-slate-500', bar: 'bg-slate-500', barSoft: 'bg-slate-500/40',
+    label: 'Gris', hex: '#6B7280', dot: 'bg-slate-500', bar: 'bg-slate-500', barSoft: 'bg-slate-500/40',
     soft: 'bg-slate-200 dark:bg-slate-700/60', text: 'text-slate-600 dark:text-slate-300',
     ring: 'ring-slate-500', stroke: 'stroke-slate-500',
   },

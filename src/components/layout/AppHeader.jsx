@@ -17,7 +17,7 @@ function ThemeButton({ theme }) {
       onClick={theme.cycle}
       title={`${label} (toca para cambiar)`}
       aria-label={label}
-      className="icon-btn bg-white shadow-sm ring-1 ring-slate-900/5 dark:bg-slate-900 dark:ring-white/10"
+      className="icon-btn bg-white shadow-sm ring-1 ring-slate-200 dark:bg-slate-900 dark:ring-slate-800"
     >
       <Icon className="h-[18px] w-[18px]" />
     </button>
@@ -28,7 +28,7 @@ function MonthSwitcher({ period, onShift, onReset }) {
   const now = new Date();
   const isCurrent = period.year === now.getFullYear() && period.month === now.getMonth() + 1;
   return (
-    <div className="flex items-center justify-between rounded-2xl bg-white p-1 shadow-sm ring-1 ring-slate-900/5 dark:bg-slate-900 dark:ring-white/5">
+    <div className="flex items-center justify-between rounded-2xl bg-white p-1 shadow-sm ring-1 ring-slate-200 dark:bg-slate-900 dark:ring-slate-800">
       <button type="button" onClick={() => onShift(-1)} aria-label="Mes anterior" className="icon-btn">
         <IconChevronLeft className="h-4 w-4" />
       </button>

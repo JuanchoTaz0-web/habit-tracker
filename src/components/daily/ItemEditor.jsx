@@ -159,7 +159,7 @@ export default function ItemEditor({
                     onClick={() => set({ sectionId: s.id, ...(editing ? {} : { color: s.color }) })}
                     className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-medium transition ${
                       active
-                        ? 'bg-indigo-600 text-white shadow-sm'
+                        ? 'bg-indigo-600 text-white dark:text-slate-950 shadow-sm'
                         : 'bg-slate-100 text-slate-600 hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700'
                     }`}
                   >
@@ -216,7 +216,7 @@ export default function ItemEditor({
                     onClick={() => toggleWeekday(d)}
                     className={`h-9 rounded-xl text-sm font-bold transition ${
                       active
-                        ? 'bg-indigo-600 text-white'
+                        ? 'bg-indigo-600 text-white dark:text-slate-950'
                         : 'bg-white text-slate-400 ring-1 ring-slate-200 dark:bg-slate-900 dark:text-slate-500 dark:ring-slate-700'
                     }`}
                   >
