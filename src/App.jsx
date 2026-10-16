@@ -8,6 +8,8 @@ import DailyView from './components/daily/DailyView';
 import ItemEditor from './components/daily/ItemEditor';
 import SectionEditor from './components/daily/SectionEditor';
 import CalendarView from './components/calendar/CalendarView';
+import CalorieTracker from './components/calories/CalorieTracker';
+{tab === 'calories' && <CalorieTracker />}
 
 export default function App() {
   const store = useHabits();
