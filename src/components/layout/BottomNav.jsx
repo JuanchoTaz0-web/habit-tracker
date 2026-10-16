@@ -1,5 +1,5 @@
 // src/components/layout/BottomNav.jsx — barra inferior flotante con botón central de alta
-import { IconCalendar, IconListCheck, IconPlus } from '../ui/Icons';
+import { IconCalendar, IconListCheck, IconPlus, IconFlame } from '../ui/Icons';
 
 function NavTab({ active, label, Icon, badge, onClick }) {
   return (
@@ -21,6 +21,45 @@ function NavTab({ active, label, Icon, badge, onClick }) {
       </span>
       {label}
     </button>
+  );
+}
+
+export default function BottomNav({ tab, onChange, onAdd, pending }) {
+  return (
+    <nav className="fixed bottom-0 left-0 right-0 z-30 border-t border-slate-200 bg-white/85 px-4 pb-safe backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/85">
+      <div className="mx-auto flex max-w-lg items-center justify-around py-2">
+        <NavTab
+          active={tab === 'daily'}
+          label="Diaria"
+          Icon={IconListCheck}
+          badge={pending}
+          onClick={() => onChange('daily')}
+        />
+
+        <NavTab
+          active={tab === 'calendar'}
+          label="Calendario"
+          Icon={IconCalendar}
+          onClick={() => onChange('calendar')}
+        />
+
+        <NavTab
+          active={tab === 'calories'}
+          label="Calorías"
+          Icon={IconFlame}
+          onClick={() => onChange('calories')}
+        />
+
+        <button
+          type="button"
+          onClick={onAdd}
+          className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 transition hover:bg-indigo-500 active:scale-95"
+          aria-label="Añadir tarea o hábito"
+        >
+          <IconPlus className="h-6 w-6" />
+        </button>
+      </div>
+    </nav>
   );
 }
 
