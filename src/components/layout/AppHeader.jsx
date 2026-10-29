@@ -9,6 +9,11 @@ const THEME_META = {
   system: { Icon: IconMonitor, label: 'Tema del sistema' },
 };
 
+const TITLES = {
+  calendar: 'Calendario',
+  calories: 'Calorías',
+};
+
 function ThemeButton({ theme }) {
   const { Icon, label } = THEME_META[theme.mode];
   return (
@@ -61,7 +66,7 @@ export default function AppHeader({ tab, theme, selectedDate, onSelectDate, dayR
             Habit Tracker
           </p>
           <h1 className="truncate text-[28px] font-black leading-tight tracking-tight">
-            {tab === 'daily' ? relativeDayTitle(selectedDate) : 'Calendario'}
+            {tab === 'daily' ? relativeDayTitle(selectedDate) : TITLES[tab]}
           </h1>
           {tab === 'daily' && (
             <p className="text-sm text-slate-500 first-letter:uppercase dark:text-slate-400">{formatLongDate(selectedDate)}</p>
@@ -77,11 +82,9 @@ export default function AppHeader({ tab, theme, selectedDate, onSelectDate, dayR
         </div>
       </div>
 
-      {tab === 'daily' ? (
-        <WeekStrip selectedDate={selectedDate} onSelect={onSelectDate} dayRatio={dayRatio} />
-      ) : (
-        <MonthSwitcher period={period} onShift={onShiftPeriod} onReset={onResetPeriod} />
-      )}
+      {tab === 'daily' && <WeekStrip selectedDate={selectedDate} onSelect={onSelectDate} dayRatio={dayRatio} />}
+      {tab === 'calendar' && <MonthSwitcher period={period} onShift={onShiftPeriod} onReset={onResetPeriod} />}
+      {/* En "calories" no se muestra selector: el CalorieTracker trae su propia navegación de día */}
     </header>
   );
 }

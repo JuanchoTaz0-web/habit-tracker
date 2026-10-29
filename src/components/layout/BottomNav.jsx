@@ -1,5 +1,11 @@
-// src/components/layout/BottomNav.jsx — barra inferior flotante con botón central de alta
-import { IconCalendar, IconListCheck, IconPlus, IconFlame } from '../ui/Icons';
+// src/components/layout/BottomNav.jsx — barra inferior: Diaria · Calendario · Calorías + botón de alta
+import { IconCalendar, IconFlame, IconListCheck, IconPlus } from '../ui/Icons';
+
+const TABS = [
+  { id: 'daily', label: 'Diaria', Icon: IconListCheck },
+  { id: 'calendar', label: 'Calendario', Icon: IconCalendar },
+  { id: 'calories', label: 'Calorías', Icon: IconFlame },
+];
 
 function NavTab({ active, label, Icon, badge, onClick }) {
   return (
@@ -7,80 +13,57 @@ function NavTab({ active, label, Icon, badge, onClick }) {
       type="button"
       onClick={onClick}
       aria-current={active ? 'page' : undefined}
-      className={`relative flex flex-col items-center gap-0.5 rounded-2xl py-1.5 text-[11px] font-semibold transition ${
-        active ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-300'
+      className={`relative flex flex-col items-center gap-0.5 rounded-2xl py-1.5 text-[11px] font-semibold transition-colors duration-200 ${
+        active
+          ? 'bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100'
+          : 'text-zinc-400 hover:text-zinc-600 dark:text-zinc-500 dark:hover:text-zinc-300'
       }`}
     >
       <span className="relative">
-        <Icon className="h-6 w-6" />
+        <Icon className="h-6 w-6" strokeWidth={active ? 2.25 : 1.75} />
         {badge > 0 && (
-          <span className="absolute -right-2.5 -top-1.5 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-rose-500 px-1 text-[10px] font-bold text-white ring-2 ring-white dark:ring-slate-900">
+          <span className="absolute -right-2.5 -top-1.5 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-rose-500 px-1 text-[10px] font-bold text-white ring-2 ring-white dark:ring-zinc-900">
             {badge > 99 ? '99+' : badge}
           </span>
         )}
       </span>
       {label}
+      {/* Indicador sutil bajo la pestaña activa */}
+      <span
+        aria-hidden="true"
+        className={`absolute bottom-0.5 h-0.5 rounded-full bg-zinc-900 transition-all duration-200 dark:bg-zinc-100 ${
+          active ? 'w-4 opacity-100' : 'w-0 opacity-0'
+        }`}
+      />
     </button>
   );
 }
 
 export default function BottomNav({ tab, onChange, onAdd, pending }) {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-30 border-t border-slate-200 bg-white/85 px-4 pb-safe backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/85">
-      <div className="mx-auto flex max-w-lg items-center justify-around py-2">
-        <NavTab
-          active={tab === 'daily'}
-          label="Diaria"
-          Icon={IconListCheck}
-          badge={pending}
-          onClick={() => onChange('daily')}
-        />
-
-        <NavTab
-          active={tab === 'calendar'}
-          label="Calendario"
-          Icon={IconCalendar}
-          onClick={() => onChange('calendar')}
-        />
-
-        <NavTab
-          active={tab === 'calories'}
-          label="Calorías"
-          Icon={IconFlame}
-          onClick={() => onChange('calories')}
-        />
+    <nav className="fixed inset-x-0 bottom-0 z-40 pb-[env(safe-area-inset-bottom)]" aria-label="Navegación principal">
+      <div className="mx-auto flex max-w-lg items-center gap-3 px-4 pb-3">
+        <div className="grid flex-1 grid-cols-3 gap-1 rounded-3xl bg-white/90 p-1.5 shadow-xl shadow-zinc-900/10 ring-1 ring-zinc-200 backdrop-blur-xl transition-colors duration-300 dark:bg-zinc-900/90 dark:shadow-black/40 dark:ring-zinc-800">
+          {TABS.map(({ id, label, Icon }) => (
+            <NavTab
+              key={id}
+              active={tab === id}
+              label={label}
+              Icon={Icon}
+              badge={id === 'daily' ? pending : 0}
+              onClick={() => onChange(id)}
+            />
+          ))}
+        </div>
 
         <button
           type="button"
           onClick={onAdd}
-          className="flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 transition hover:bg-indigo-500 active:scale-95"
-          aria-label="Añadir tarea o hábito"
+          aria-label="Nueva tarea"
+          className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-zinc-900 text-white shadow-lg shadow-zinc-900/30 transition hover:bg-zinc-700 active:scale-95 dark:bg-zinc-100 dark:text-zinc-900 dark:shadow-black/40 dark:hover:bg-white"
         >
-          <IconPlus className="h-6 w-6" />
+          <IconPlus className="h-7 w-7" strokeWidth={2.5} />
         </button>
-      </div>
-    </nav>
-  );
-}
-
-export default function BottomNav({ tab, onChange, onAdd, pending }) {
-  return (
-    <nav className="fixed inset-x-0 bottom-0 z-40 pb-[env(safe-area-inset-bottom)]" aria-label="Navegación principal">
-      <div className="mx-auto max-w-lg px-4 pb-3">
-        <div className="grid grid-cols-3 items-center rounded-3xl bg-white/90 px-2 py-1.5 shadow-xl shadow-slate-900/10 ring-1 ring-slate-200 backdrop-blur-xl transition-colors duration-300 dark:bg-slate-900/90 dark:shadow-black/40 dark:ring-slate-800">
-          <NavTab active={tab === 'daily'} label="Diaria" Icon={IconListCheck} badge={pending} onClick={() => onChange('daily')} />
-          <div className="flex justify-center">
-            <button
-              type="button"
-              onClick={onAdd}
-              aria-label="Nueva tarea"
-              className="-mt-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-indigo-600 text-white dark:text-slate-950 shadow-lg shadow-indigo-600/40 ring-4 ring-slate-100 transition hover:bg-indigo-500 active:scale-95 dark:ring-slate-950"
-            >
-              <IconPlus className="h-7 w-7" strokeWidth={2.5} />
-            </button>
-          </div>
-          <NavTab active={tab === 'calendar'} label="Calendario" Icon={IconCalendar} onClick={() => onChange('calendar')} />
-        </div>
       </div>
     </nav>
   );
