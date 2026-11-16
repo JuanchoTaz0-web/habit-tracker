@@ -104,3 +104,10 @@ export const IconPencil = make(
     <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
   </>
 );
+export const IconWallet = make(
+  <>
+    <path d="M4 7a2 2 0 0 1 2-2h11v3" />
+    <path d="M4 7v10a2 2 0 0 0 2 2h13a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H6a2 2 0 0 1-2-1Z" />
+    <path d="M16 13.5h.01" />
+  </>
+);

@@ -12,6 +12,7 @@ const THEME_META = {
 const TITLES = {
   calendar: 'Calendario',
   calories: 'Calorías',
+  finances: 'Finanzas',
 };
 
 function ThemeButton({ theme }) {

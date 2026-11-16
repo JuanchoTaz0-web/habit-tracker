@@ -1,4 +1,4 @@
-// src/App.jsx — shell móvil: cabecera, pestañas (Diaria / Calendario / Calorías), barra inferior y editores
+// src/App.jsx — shell móvil: cabecera, pestañas (Diaria / Calendario / Calorías / Gastos), barra inferior y editores
 import { useCallback, useState } from 'react';
 import useHabits from './hooks/useHabits';
 import useTheme from './hooks/useTheme';
@@ -9,6 +9,7 @@ import ItemEditor from './components/daily/ItemEditor';
 import SectionEditor from './components/daily/SectionEditor';
 import CalendarView from './components/calendar/CalendarView';
 import CalorieTracker from './components/calories/CalorieTracker';
+import ExpenseTracker from './components/finances/ExpenseTracker';
 
 export default function App() {
   const store = useHabits();
@@ -93,6 +94,10 @@ export default function App() {
 
           {tab === 'calories' && (
             <CalorieTracker />
+          )}
+
+          {tab === 'finances' && (
+            <ExpenseTracker />
           )}
         </main>
       </div>
